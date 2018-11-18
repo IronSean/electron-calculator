@@ -29,6 +29,7 @@ export default class Calculator extends Component<Props> {
       handleDivide,
       handleEquals,
       handleClearTotal,
+      handleClearInput,
       input,
       total
     } = this.props;
@@ -156,15 +157,15 @@ export default class Calculator extends Component<Props> {
             data-tclass="btn"
             type="button"
           >
-            clear
+            Clear Total
           </button>
           <button
             className={styles.btn}
-            onClick={handleEquals}
+            onClick={handleClearInput}
             data-tclass="btn"
             type="button"
           >
-            <i className="fa fa-equals" />
+            Clear Input
           </button>
           <button
             className={styles.btn}
