@@ -136,7 +136,7 @@ export default class Calculator extends Component<Props> {
           </button>
           <button
             className={styles.btn}
-            onClick={() => handleMultiply}
+            onClick={handleMultiply}
             data-tclass="btn"
             type="button"
           >
