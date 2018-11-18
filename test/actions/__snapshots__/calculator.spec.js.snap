@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actions should addToTotal should create ADD_TO_TOTAL action with value as payload 1`] = `
+Object {
+  "payload": 12,
+  "type": "ADD_TO_TOTAL",
+}
+`;
+
+exports[`actions should clearTotal should create CLEAR_TOTAL action 1`] = `
+Object {
+  "type": "CLEAR_TOTAL",
+}
+`;
+
+exports[`actions should multiplyTotal should create MULTIPLY_TOTAL action with value as payload 1`] = `
+Object {
+  "payload": 12,
+  "type": "MULTIPLY_TOTAL",
+}
+`;
