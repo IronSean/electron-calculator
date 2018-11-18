@@ -35,7 +35,6 @@ export default class Calculator extends Component<Props> {
     } = this.props;
     return (
       <div>
-        THIS IS THE CALCULATOR
         <div className={styles.backButton} data-tid="backButton">
           <Link to={routes.HOME}>
             <i className="fa fa-arrow-left fa-3x" />
