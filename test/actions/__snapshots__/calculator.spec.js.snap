@@ -7,15 +7,16 @@ Object {
 }
 `;
 
-exports[`actions should clearTotal should create CLEAR_TOTAL action 1`] = `
-Object {
-  "type": "CLEAR_TOTAL",
-}
-`;
-
 exports[`actions should multiplyTotal should create MULTIPLY_TOTAL action with value as payload 1`] = `
 Object {
   "payload": 12,
   "type": "MULTIPLY_TOTAL",
+}
+`;
+
+exports[`actions should setTotal should create SET_TOTAL action 1`] = `
+Object {
+  "payload": 3,
+  "type": "SET_TOTAL",
 }
 `;

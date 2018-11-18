@@ -2,9 +2,9 @@
 
 exports[`reducers counter should handle ADD_TO_TOTAL 1`] = `2`;
 
-exports[`reducers counter should handle CLEAR_TOTAL 1`] = `0`;
-
 exports[`reducers counter should handle MULTIPLY_TOTAL 1`] = `2`;
+
+exports[`reducers counter should handle SET_TOTAL 1`] = `3`;
 
 exports[`reducers counter should handle initial state 1`] = `0`;
 

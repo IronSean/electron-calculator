@@ -2,7 +2,7 @@ import calculator from '../../app/reducers/calculator';
 import {
   ADD_TO_TOTAL,
   MULTIPLY_TOTAL,
-  CLEAR_TOTAL
+  SET_TOTAL
 } from '../../app/actions/calculator';
 
 describe('reducers', () => {
@@ -23,8 +23,8 @@ describe('reducers', () => {
       ).toMatchSnapshot();
     });
 
-    it('should handle CLEAR_TOTAL', () => {
-      expect(calculator(1, { type: CLEAR_TOTAL })).toMatchSnapshot();
+    it('should handle SET_TOTAL', () => {
+      expect(calculator(1, { type: SET_TOTAL, payload: 3 })).toMatchSnapshot();
     });
 
     it('should handle unknown action type', () => {

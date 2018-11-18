@@ -40,7 +40,17 @@ describe('actions', () => {
   });
 
   // There's no nice way to test this at the moment...
-  it('should clearTotal should create CLEAR_TOTAL action', () => {
-    expect(actions.clearTotal()).toMatchSnapshot();
+  it('should setTotal should create SET_TOTAL action', () => {
+    expect(actions.setTotal(3)).toMatchSnapshot();
+  });
+
+  it('should clearTotal should create SET_TOTAL action with 0 as payload', () => {
+    const fn = actions.clearTotal();
+    expect(fn).toBeInstanceOf(Function);
+    const dispatch = spy();
+    fn(dispatch);
+    expect(dispatch.calledWith({ type: actions.SET_TOTAL, payload: 0 })).toBe(
+      true
+    );
   });
 });
