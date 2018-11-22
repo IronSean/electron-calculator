@@ -8,6 +8,7 @@ import CounterPage from './containers/CounterPage';
 export default () => (
   <App>
     <Switch>
+      <Route path={routes.CALCULATOR} component={() => 'Test'} />
       <Route path={routes.COUNTER} component={CounterPage} />
       <Route path={routes.HOME} component={HomePage} />
     </Switch>
