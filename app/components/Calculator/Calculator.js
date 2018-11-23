@@ -2,12 +2,20 @@
 import React, { Component } from 'react';
 import CalculatorView from './CalculatorView';
 import { Operations } from '../../constants/Operations';
+import type { Operation } from '../../constants/Operations';
 
-export class Calculator extends Component<{}> {
+type State = {
+  total: number,
+  input: number,
+  operation: Operation
+};
+
+export class Calculator extends Component<{}, State> {
+  state = { total: 1234, input: 567, operation: Operations.None };
+
   render() {
-    return (
-      <CalculatorView total={123} input={456} operation={Operations.Addition} />
-    );
+    const { total, input, operation } = this.state;
+    return <CalculatorView total={total} input={input} operation={operation} />;
   }
 }
 
