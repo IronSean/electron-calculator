@@ -14,8 +14,8 @@ export class Calculator extends Component<{}, State> {
   state = { total: 1234, input: 567, operation: Operations.None };
 
   //TODO better typing of input
-  handleButton = (input: string) => {
-    switch (input) {
+  handleButton = (button: string) => {
+    switch (button) {
       case '1':
       case '2':
       case '3':
@@ -28,7 +28,7 @@ export class Calculator extends Component<{}, State> {
       case '0':
         this.setState(prevState => {
           return {
-            input: prevState.input * 10 + parseInt(input)
+            input: prevState.input * 10 + parseInt(button)
           };
         });
         break;
@@ -36,8 +36,46 @@ export class Calculator extends Component<{}, State> {
       case '-':
       case '/':
       case '*':
+        this.setState(prevState => {
+          const total = prevState.input;
+          const input = 0;
+          const operation = button;
+
+          return {
+            total,
+            input,
+            operation
+          };
+        });
+        break;
       case '=':
+        if (this.state.operation === Operations.None) {
+          break;
+        }
+
+        const result = this.handleCalculation();
+
+        this.setState(prevState => {
+          return { total: result, input: 0, operation: Operations.None };
+        });
       default:
+        break;
+    }
+  };
+
+  handleCalculation = () => {
+    const { input, total, operation } = this.state;
+
+    switch (operation) {
+      case Operations.Addition:
+        return total + input;
+      case Operations.Subtraction:
+        return total - input;
+      case Operations.Multiplication:
+        return total * input;
+      case Operations.Division:
+        return input !== 0 ? total / input : 0;
+      case Operations.None:
         break;
     }
   };
