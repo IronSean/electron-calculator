@@ -10,8 +10,14 @@ type State = {
   operation: Operation
 };
 
+const initialState: State = {
+  total: 0,
+  input: 0,
+  operation: Operations.None
+};
+
 export class Calculator extends Component<{}, State> {
-  state = { total: 1234, input: 567, operation: Operations.None };
+  state = initialState;
 
   //TODO better typing of input
   handleButton = (button: string) => {
@@ -36,31 +42,29 @@ export class Calculator extends Component<{}, State> {
       case '-':
       case '/':
       case '*':
-        this.setState(prevState => {
-          const total = prevState.input;
-          const input = 0;
-          const operation = button;
-
-          return {
-            total,
-            input,
-            operation
-          };
-        });
+        this.setState({ operation: button });
         break;
       case '=':
-        if (this.state.operation === Operations.None) {
-          break;
-        }
-
-        const result = this.handleCalculation();
-
-        this.setState(prevState => {
-          return { total: result, input: 0, operation: Operations.None };
-        });
+        this.handleEquals();
+        break;
+      case 'Clr':
+        this.setState(initialState);
+        break;
       default:
         break;
     }
+  };
+
+  handleEquals = () => {
+    if (this.state.operation === Operations.None) {
+      return;
+    }
+
+    const result = this.handleCalculation();
+
+    this.setState(prevState => {
+      return { total: result };
+    });
   };
 
   handleCalculation = () => {
