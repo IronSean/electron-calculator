@@ -12,7 +12,37 @@ type Props = {
   handleButton: (button: string) => void
 };
 
+const buttons: string[] = [
+  '7',
+  '8',
+  '9',
+  '*',
+  '4',
+  '5',
+  '6',
+  '/',
+  '1',
+  '2',
+  '3',
+  '+',
+  '0',
+  '.',
+  '=',
+  '-'
+];
+
 export class CalculatorView extends Component<Props> {
+  renderButton = (button: string) => {
+    return (
+      <button
+        className={`${styles.calculatorButton}`}
+        onClick={() => this.props.handleButton(button)}
+      >
+        {button}
+      </button>
+    );
+  };
+
   render() {
     return (
       <div className={styles.container}>
@@ -32,102 +62,7 @@ export class CalculatorView extends Component<Props> {
             </div>
           </div>
           <div className={`${styles.calculatorButtons}`}>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('7')}
-            >
-              7
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('8')}
-            >
-              8
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('9')}
-            >
-              9
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('*')}
-            >
-              *
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('4')}
-            >
-              4
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('5')}
-            >
-              5
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('6')}
-            >
-              6
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('/')}
-            >
-              /
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('1')}
-            >
-              1
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('2')}
-            >
-              2
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('3')}
-            >
-              3
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('+')}
-            >
-              +
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('0')}
-            >
-              0
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('.')}
-            >
-              .
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('=')}
-            >
-              =
-            </button>
-            <button
-              className={`${styles.calculatorButton}`}
-              onClick={() => this.props.handleButton('-')}
-            >
-              -
-            </button>
+            {buttons.map(b => this.renderButton(b))}
           </div>
         </div>
       </div>
