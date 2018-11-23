@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import CalculatorView from './CalculatorView';
 
