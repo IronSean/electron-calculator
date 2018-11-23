@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Calculator.css';
 import routes from '../../constants/routes';
-import type { Operation } from '../../constants/Operations';
+import type { Operation } from '../../constants/Calculator';
 
 type Props = {
   total: number,
