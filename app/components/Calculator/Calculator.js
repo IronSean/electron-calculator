@@ -32,27 +32,35 @@ export class Calculator extends Component<{}, State> {
       case '8':
       case '9':
       case '0':
-        this.setState(prevState => {
-          return {
-            input: prevState.input * 10 + parseInt(button)
-          };
-        });
+        this.handleNumber(button);
         break;
       case '+':
       case '-':
       case '/':
       case '*':
-        this.setState({ operation: button });
+        this.handleOperation(button);
         break;
       case '=':
         this.handleEquals();
         break;
       case 'Clr':
-        this.setState(initialState);
+        this.handleClear();
         break;
       default:
         break;
     }
+  };
+
+  handleNumber = (button: string) => {
+    this.setState(prevState => {
+      return {
+        input: prevState.input * 10 + parseInt(button)
+      };
+    });
+  };
+
+  handleOperation = (button: Operation) => {
+    this.setState({ operation: button });
   };
 
   handleEquals = () => {
@@ -65,6 +73,10 @@ export class Calculator extends Component<{}, State> {
     this.setState(prevState => {
       return { total: result };
     });
+  };
+
+  handleClear = () => {
+    this.setState(initialState);
   };
 
   handleCalculation = () => {
