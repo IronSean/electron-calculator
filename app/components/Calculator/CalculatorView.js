@@ -3,8 +3,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Calculator.css';
 import routes from '../../constants/routes';
+import type { Operation } from '../../constants/Operations';
 
-type Props = {};
+type Props = {
+  total: number,
+  input: number,
+  operation: Operation
+};
 
 export class CalculatorView extends Component<Props> {
   render() {
@@ -20,8 +25,10 @@ export class CalculatorView extends Component<Props> {
           data-tid="calculator"
         >
           <div className={`${styles.calculatorDisplay}`}>
-            <div>12345</div>
-            <div>+ 322</div>
+            <div>{this.props.total}</div>
+            <div>
+              {this.props.operation} {this.props.input}
+            </div>
           </div>
           <div className={`${styles.calculatorButtons}`}>
             <button className={`${styles.calculatorButton}`}>7</button>
